@@ -401,17 +401,17 @@ export function AboutPreview() {
             <h2 className="text-3xl font-bold text-white mb-6">
               Join Us at{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-indigo-100">
-                ACRES 2025
+                ACRES 2026
               </span>
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-indigo-100">
               <div className="flex items-center gap-3">
                 <Calendar className="w-6 h-6 text-indigo-300" />
-                <span className="text-lg">September 25-27, 2025</span>
+                <span className="text-lg">12–14 November 2026</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-6 h-6 text-indigo-300" />
-                <span className="text-lg">Port Harcourt & Abuja, Nigeria</span>
+                <span className="text-lg">Obi Wali ICC, Port Harcourt</span>
               </div>
             </div>
           </div>

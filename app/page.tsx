@@ -73,7 +73,7 @@ export default function Home() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <NavbarButton href="#register" variant="primary">
+          <NavbarButton href="/register/attendee" variant="primary">
             Register Now
           </NavbarButton>
         </NavBody>
@@ -106,7 +106,7 @@ export default function Home() {
             ))}
             <div className="pt-4 border-t border-indigo-300/20">
               <NavbarButton
-                href="#register"
+                href="/register/attendee"
                 variant="primary"
                 className="w-full justify-center"
                 onClick={handleMobileItemClick}

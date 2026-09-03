@@ -12,6 +12,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 
 const heroVariants: Variants = {
   hidden: { opacity: 0 },
@@ -159,7 +160,7 @@ export function HeroSection() {
         >
           <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
           <span className="text-center">
-            september 25-27, 2025 • Abuja & Port Harcourt
+            12–14 November 2026 • Port Harcourt
           </span>
         </motion.div>
 
@@ -206,22 +207,24 @@ export function HeroSection() {
             transform: `translateY(${scrollY * -0.2}px)`,
           }}
         >
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full font-semibold text-base sm:text-lg shadow-2xl shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300 flex items-center justify-center border border-indigo-400/50"
-          >
-            Register Now
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/register/attendee"
+              className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-full font-semibold text-base sm:text-lg shadow-2xl shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300 flex items-center justify-center border border-indigo-400/50"
+            >
+              Register Now
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
 
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/40 text-white rounded-full font-semibold text-base sm:text-lg backdrop-blur-lg bg-black/30 hover:bg-white/20 hover:border-white/60 transition-all duration-300 shadow-xl"
-          >
-            View Program
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.98 }}>
+            <a
+              href="#program"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/40 text-white rounded-full font-semibold text-base sm:text-lg backdrop-blur-lg bg-black/30 hover:bg-white/20 hover:border-white/60 transition-all duration-300 shadow-xl flex items-center justify-center"
+            >
+              View Program
+            </a>
+          </motion.div>
         </motion.div>
 
         {/* Stats with better mobile layout */}
@@ -235,7 +238,7 @@ export function HeroSection() {
           {[
             { icon: Users, label: "5000+", desc: "Attendees" },
             { icon: MapPin, label: "40+", desc: "Countries" },
-            { icon: Calendar, label: "2", desc: "Days" },
+            { icon: Calendar, label: "3", desc: "Days" },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -262,9 +265,9 @@ export function HeroSection() {
             textShadow: "0 2px 10px rgba(0, 0, 0, 0.9)",
           }}
         >
-          <div className="text-center sm:text-left">september 25-27, 2025</div>
+          <div className="text-center sm:text-left">12–14 November 2026</div>
           <div className="hidden sm:block w-32 md:w-48 h-px bg-white/50 shadow-lg" />
-          <div className="text-center sm:text-right">Abuja & Port Harcourt</div>
+          <div className="text-center sm:text-right">Obi Wali ICC, Port Harcourt</div>
         </motion.div>
       </div>
     </motion.section>

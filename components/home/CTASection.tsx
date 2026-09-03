@@ -2,8 +2,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Calendar, MapPin, Mail, Users } from "lucide-react";
+import { ArrowRight, Calendar, MapPin, Users, Store, Presentation } from "lucide-react";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -107,7 +108,7 @@ export function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Join ACRES 2025
+              Join ACRES 2026
             </motion.div>
 
             <motion.h2
@@ -130,7 +131,7 @@ export function CTASection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.8)" }}
             >
-              Join industry leaders, innovators, and visionaries at ACRES 2025.
+              Join industry leaders, innovators, and visionaries at ACRES 2026.
               Don&apos;t miss your chance to be part of Africa&apos;s premier
               construction and real estate summit.
             </motion.p>
@@ -147,17 +148,17 @@ export function CTASection() {
                 Event Dates
               </h3>
               <p className="text-indigo-100 font-medium drop-shadow-md">
-                september 25-27, 2025
+                12&ndash;14 November 2026
               </p>
             </HolographicInfoCard>
 
             <HolographicInfoCard delay={0.4}>
               <MapPin className="w-12 h-12 text-indigo-200 mb-4" />
               <h3 className="text-xl font-bold text-white mb-3 drop-shadow-lg">
-                Locations
+                Location
               </h3>
               <p className="text-indigo-100 font-medium drop-shadow-md">
-                Abuja & Port Harcourt
+                Obi Wali ICC, Port Harcourt
               </p>
             </HolographicInfoCard>
 
@@ -177,43 +178,65 @@ export function CTASection() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12"
           >
-            {/* Primary CTA */}
-            <motion.button
+            {/* Primary CTA — direct link to the attendee registration form */}
+            <motion.div
               variants={buttonVariants}
               initial="idle"
               whileHover="hover"
               whileTap="tap"
-              className="group relative bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-10 py-5 rounded-full font-bold text-lg overflow-hidden shadow-2xl border border-indigo-400/50 hover:shadow-indigo-500/40 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-3">
-                Register Now
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <ArrowRight className="w-6 h-6" />
-                </motion.div>
-              </span>
-            </motion.button>
+              <Link
+                href="/register/attendee"
+                className="group relative flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-10 py-5 rounded-full font-bold text-lg overflow-hidden shadow-2xl border border-indigo-400/50 hover:shadow-indigo-500/40 transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative flex items-center gap-3">
+                  Register as Attendee
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 1.5,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <ArrowRight className="w-6 h-6" />
+                  </motion.div>
+                </span>
+              </Link>
+            </motion.div>
 
-            {/* Secondary CTA */}
-            <motion.button
+            {/* Exhibitor CTA */}
+            <motion.div
               variants={buttonVariants}
               initial="idle"
               whileHover="hover"
               whileTap="tap"
-              className="group bg-black/60 backdrop-blur-lg border-2 border-indigo-300/40 text-white px-10 py-5 rounded-full font-bold text-lg hover:border-indigo-300/60 hover:bg-black/70 transition-all duration-300 shadow-2xl hover:shadow-indigo-500/30"
             >
-              <span className="flex items-center gap-3">
-                <Mail className="w-6 h-6" />
-                Get Updates
-              </span>
-            </motion.button>
+              <Link
+                href="/register/exhibitor"
+                className="group flex items-center gap-3 bg-black/60 backdrop-blur-lg border-2 border-indigo-300/40 text-white px-8 py-5 rounded-full font-bold text-lg hover:border-indigo-300/60 hover:bg-black/70 transition-all duration-300 shadow-2xl hover:shadow-indigo-500/30"
+              >
+                <Presentation className="w-6 h-6" />
+                Become an Exhibitor
+              </Link>
+            </motion.div>
+
+            {/* Vendor CTA */}
+            <motion.div
+              variants={buttonVariants}
+              initial="idle"
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Link
+                href="/register/vendor"
+                className="group flex items-center gap-3 bg-black/60 backdrop-blur-lg border-2 border-indigo-300/40 text-white px-8 py-5 rounded-full font-bold text-lg hover:border-indigo-300/60 hover:bg-black/70 transition-all duration-300 shadow-2xl hover:shadow-indigo-500/30"
+              >
+                <Store className="w-6 h-6" />
+                Vendor Registration
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Bottom Note */}

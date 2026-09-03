@@ -9,19 +9,14 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { ReactNode } from "react";
+import Link from "next/link";
 
-const venues = [
-  {
-    city: "Port Harcourt",
-    country: "Nigeria",
-    date: "September 25-27, 2025",
-  },
-  {
-    city: "Abuja",
-    country: "Nigeria",
-    date: "September 25-27, 2025",
-  },
-];
+const venue = {
+  name: "Obi Wali International Conference Centre",
+  city: "Port Harcourt",
+  country: "Nigeria",
+  date: "12–14 November 2026",
+};
 
 interface HolographicShapeProps {
   children: ReactNode;
@@ -86,7 +81,7 @@ export function VenuePreview() {
               </div>
 
               <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-                ACRES 2025
+                ACRES 2026
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-200 to-indigo-100">
                   Venue & Program
@@ -96,7 +91,7 @@ export function VenuePreview() {
               <div className="space-y-6 text-lg text-indigo-50 leading-relaxed">
                 <p style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.8)" }}>
                   Join us for the inaugural African Construction and Real Estate
-                  Exhibition/Summit across two key Nigerian cities.
+                  Exhibition/Summit in Port Harcourt, Nigeria.
                 </p>
                 <p style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.8)" }}>
                   A comprehensive 3-day program featuring exhibitions, summit
@@ -139,40 +134,37 @@ export function VenuePreview() {
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">
-              Event Locations
+              Event Venue
             </h3>
             <p className="text-indigo-50 max-w-2xl mx-auto drop-shadow-md">
               ACRES will be hosted annually, with the inaugural event taking
-              place in Port Harcourt & Abuja, Nigeria.
+              place at the Obi Wali International Conference Centre, Port
+              Harcourt.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {venues.map((venue, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
-                whileHover={{ scale: 1.05, y: -8 }}
-                className="group bg-black/60 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:border-indigo-300/50 transition-all duration-300 text-center hover:shadow-2xl hover:shadow-indigo-500/20 hover:bg-black/70"
-              >
-                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-2xl shadow-indigo-500/30 border border-indigo-400/50">
-                  <MapPin className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors drop-shadow-lg">
-                  {venue.city}
-                </h4>
-                <p className="text-indigo-200 text-lg mb-4 drop-shadow-md">
-                  {venue.country}
-                </p>
-                <div className="flex items-center justify-center gap-2 text-indigo-100">
-                  <Calendar className="w-4 h-4" />
-                  <span className="drop-shadow-md">{venue.date}</span>
-                </div>
-              </motion.div>
-            ))}
+          <div className="max-w-md mx-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05, y: -8 }}
+              className="group bg-black/60 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:border-indigo-300/50 transition-all duration-300 text-center hover:shadow-2xl hover:shadow-indigo-500/20 hover:bg-black/70"
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-2xl shadow-indigo-500/30 border border-indigo-400/50">
+                <MapPin className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors drop-shadow-lg">
+                {venue.name}
+              </h4>
+              <p className="text-indigo-200 text-lg mb-4 drop-shadow-md">
+                {venue.city}, {venue.country}
+              </p>
+              <div className="flex items-center justify-center gap-2 text-indigo-100">
+                <Calendar className="w-4 h-4" />
+                <span className="drop-shadow-md">{venue.date}</span>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
         {/* CTA */}
@@ -183,15 +175,16 @@ export function VenuePreview() {
           viewport={{ once: true }}
           transition={{ delay: 0.9 }}
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 border border-indigo-400/50"
-          >
-            <Calendar className="w-5 h-5" />
-            Register for ACRES 2025
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <Link
+              href="/register/attendee"
+              className="group inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 border border-indigo-400/50"
+            >
+              <Calendar className="w-5 h-5" />
+              Register for ACRES 2026
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </div>

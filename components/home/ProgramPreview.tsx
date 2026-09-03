@@ -135,7 +135,7 @@ export function ProgramPreview() {
             className="text-lg sm:text-xl text-indigo-50 max-w-4xl mx-auto leading-relaxed px-4 mb-8"
             style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.8)" }}
           >
-            The ACRES program will be structured over two days and will feature
+            The ACRES program will be structured over three days and will feature
             keynote speeches, panel discussions, technical workshops,
             exhibitions, and networking events.
           </p>
@@ -143,12 +143,12 @@ export function ProgramPreview() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-indigo-200">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5" />
-              <span className="font-medium">September 25-27, 2025</span>
+              <span className="font-medium">12–14 November 2026</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5" />
               <span className="font-medium">
-                Port Harcourt & Abuja, Nigeria
+                Obi Wali ICC, Port Harcourt
               </span>
             </div>
           </div>
